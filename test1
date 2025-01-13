@@ -2,7 +2,7 @@ pipeline {
     agent any  // Runs on any available agent
  
     stages {
-        stage('Checkout') {  // Stage 1: Clone the GitHub repository
+        stage('Checkout') {  // Stage 1: Clone the GitHub repository-testing
             steps {
                 echo 'Cloning repository...'
                 git branch: 'main', url: 'https://github.com/your-org/your-repo.git'
