@@ -1,0 +1,45 @@
+pipeline {
+    agent any  // Runs on any available agent
+ 
+    stages {
+        stage('Checkout') {  // Stage 1: Clone the GitHub repository
+            steps {
+                echo 'Cloning repository...'
+                git branch: 'main', url: 'https://github.com/your-org/your-repo.git'
+            }
+        }
+ 
+        stage('Build') {  // Stage 2: Build or prepare
+            steps {
+                echo 'Building the project...'
+                sh 'echo "Building..."'  // Replace with your actual build commands
+            }
+        }
+ 
+        stage('Test') {  // Stage 3: Run tests
+            steps {
+                echo 'Running tests...'
+                sh 'echo "Running tests..."'  // Replace with actual test commands
+            }
+        }
+ 
+        stage('Deploy') {  // Stage 4: Deploy the application
+            steps {
+                echo 'Deploying the application...'
+                sh 'echo "Deploying..."'  // Replace with actual deployment commands
+            }
+        }
+    }
+ 
+    post {
+        always {
+            echo 'Pipeline execution completed.'
+        }
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
